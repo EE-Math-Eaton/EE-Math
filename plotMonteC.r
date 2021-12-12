@@ -12,7 +12,6 @@ graphTitle <- ""
 xTitle <- "Starting Condition"
 yTitle <- "Distribution"
 
-
 barplot(data_table,
         main = "Monte Carlo Distribution",
         xlab = "Starting Condition",
