@@ -8,9 +8,6 @@ colnames(data) <- cols
 data_table <- as.data.table(data, TRUE)
 data_table <- data_table %>% select(-rn)
 data_table <- t(data_table)
-graphTitle <- ""
-xTitle <- "Starting Condition"
-yTitle <- "Distribution"
 
 barplot(data_table,
         main = "Markov Chain Distribution",
