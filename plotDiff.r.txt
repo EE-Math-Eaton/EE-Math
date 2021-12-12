@@ -1,0 +1,25 @@
+library(data.table)
+library(dplyr)
+
+plotFile1 <- read.csv(file.choose(),header=FALSE,sep=",")
+plotFile2 <- read.csv(file.choose(),header=FALSE,sep=",")
+data <- plotFile1[,5:14] - plotFile2[,5:14]
+cols <- c("+4","+3","+2","+1","+0","-1","-2","-3","-4","+1.5")
+colnames(data) <- cols
+data_table <- as.data.table(data, TRUE)
+data_table <- t(data_table)
+graphTitle <- "Error Distribution"
+xTitle <- "Starting Condition"
+yTitle <- "Distibution Difference"
+
+plot(data_table["rn",], data_table["+4",], col="#000066", pch=16, ylim = c(-0.001,0.001), xlab=xTitle, ylab=yTitle, main=graphTitle)
+points(data_table["rn",], data_table["+3",], col="#2222aa", pch=16)
+points(data_table["rn",], data_table["+2",], col="#4444dd", pch=16)
+points(data_table["rn",], data_table["+1",], col="#6666ff", pch=16)
+points(data_table["rn",], data_table["+0",], col="#aa88aa", pch=16)
+points(data_table["rn",], data_table["-1",], col="#ff6666", pch=16)
+points(data_table["rn",], data_table["-2",], col="#dd4444", pch=16)
+points(data_table["rn",], data_table["-3",], col="#aa2222", pch=16)
+points(data_table["rn",], data_table["-4",], col="#660000", pch=16)
+points(data_table["rn",], data_table["+1.5",], col="#88dd88", pch=16)
+legend("bottom", legend=c("+1.5","-4","-3","-2","-1","+0","+1","+2","+3","+4"), pch=c(16,16,16,16,16,16,16,16,16,16), col=c("#000066", "#2222aa","#4444dd", "#6666ff","#aa88aa", "#ff6666","#dd4444", "#aa2222","#660000", "#88dd88"), bty="n", ncol=5, cex=0.8)
