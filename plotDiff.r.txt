@@ -12,7 +12,7 @@ graphTitle <- "Error Distribution"
 xTitle <- "Starting Condition"
 yTitle <- "Distibution Difference"
 
-plot(data_table["rn",], data_table["+4",], col="#000066", pch=16, ylim = c(-0.001,0.001), xlab=xTitle, ylab=yTitle, main=graphTitle)
+plot(data_table["rn",], data_table["+4",], col="#000066", pch=16, xaxt='n', ylim = c(-0.001,0.001), xlab=xTitle, ylab=yTitle, main=graphTitle)
 points(data_table["rn",], data_table["+3",], col="#2222aa", pch=16)
 points(data_table["rn",], data_table["+2",], col="#4444dd", pch=16)
 points(data_table["rn",], data_table["+1",], col="#6666ff", pch=16)
